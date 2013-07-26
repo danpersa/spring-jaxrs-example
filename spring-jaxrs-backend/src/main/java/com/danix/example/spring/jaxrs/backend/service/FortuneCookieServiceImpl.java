@@ -29,7 +29,7 @@ public class FortuneCookieServiceImpl implements FortuneCookieService {
         }
 
         FortuneCookie fortuneCookie = new FortuneCookie();
-        fortuneCookie.setName("You are lucky! " + System.currentTimeMillis());
+        fortuneCookie.setName("You are lucky! " + id);
         fortuneCookie.setContent("Sooooo luuukyyyy!!!");
         return fortuneCookie;
     }
