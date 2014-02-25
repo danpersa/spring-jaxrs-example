@@ -4,20 +4,20 @@ import javax.validation.Validator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Controller;
 
 import org.springframework.validation.annotation.Validated;
 
 import com.danix.example.spring.jaxrs.api.domain.FortuneCookie;
 import com.danix.example.spring.jaxrs.api.exception.FortuneCookieNotFoundException;
-import com.danix.example.spring.jaxrs.api.service.FortuneCookieService;
+import com.danix.example.spring.jaxrs.api.service.FortuneCookieResource;
 
 /**
  * @author  dpersa
  */
-@Service
+@Controller
 @Validated
-public class FortuneCookieServiceImpl implements FortuneCookieService {
+public class FortuneCookieResourceImpl implements FortuneCookieResource {
 
     @Autowired
     private Validator validator;

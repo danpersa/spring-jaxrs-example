@@ -1,11 +1,11 @@
 package com.danix.example.spring.jaxrs.backend.exception.handler;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
+
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
-
-import org.hibernate.validator.method.MethodConstraintViolation;
-import org.hibernate.validator.method.MethodConstraintViolationException;
 
 import org.springframework.stereotype.Component;
 
@@ -14,11 +14,12 @@ import org.springframework.stereotype.Component;
  */
 @Provider
 @Component
-public class MethodConstraintViolationExceptionHandler implements ExceptionMapper<MethodConstraintViolationException> {
+public class MethodConstraintViolationExceptionHandler implements ExceptionMapper<ConstraintViolationException> {
+
     @Override
-    public Response toResponse(final MethodConstraintViolationException validationException) {
+    public Response toResponse(final ConstraintViolationException validationException) {
         StringBuilder response = new StringBuilder("{ 'error': 'Validation error!!'");
-        for (MethodConstraintViolation violation : validationException.getConstraintViolations()) {
+        for (ConstraintViolation violation : validationException.getConstraintViolations()) {
             response.append(",");
             response.append("'" + violation.getInvalidValue() + "':");
             response.append("'" + violation.getMessage() + "'");

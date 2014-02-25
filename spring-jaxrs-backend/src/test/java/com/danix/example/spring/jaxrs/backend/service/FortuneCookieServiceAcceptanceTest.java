@@ -11,7 +11,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.danix.example.spring.jaxrs.api.domain.FortuneCookie;
-import com.danix.example.spring.jaxrs.api.service.FortuneCookieService;
+import com.danix.example.spring.jaxrs.api.service.FortuneCookieResource;
 
 /**
  * @author  dpersa
@@ -25,7 +25,7 @@ public class FortuneCookieServiceAcceptanceTest {
 
     @Test
     public void testGetFortuneCookiebyId() throws Exception {
-        FortuneCookieService client = ProxyFactory.create(FortuneCookieService.class,
+        FortuneCookieResource client = ProxyFactory.create(FortuneCookieResource.class,
                 "http://localhost:8080/backend/api");
         FortuneCookie fortuneCookie = client.getFortuneCookiebyId(2);
         Assert.assertThat(fortuneCookie.getName(), is("You are lucky! " + 2));

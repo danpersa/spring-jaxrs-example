@@ -15,11 +15,13 @@
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <org.springframework.version>3.2.1.RELEASE</org.springframework.version>
-        <org.jboss.resteasy.version>2.3.5.Final</org.jboss.resteasy.version>
+        <org.springframework.version>4.0.2.RELEASE</org.springframework.version>
+        <org.jboss.resteasy.version>3.0.6.Final</org.jboss.resteasy.version>
         <org.slf4j.version>1.7.2</org.slf4j.version>
         <ch.qos.logback.version>1.0.9</ch.qos.logback.version>
         <org.apache.httpcomponents.version>4.2.3</org.apache.httpcomponents.version>
+        <hibernate-validator.version>5.0.3.Final</hibernate-validator.version>
+        <javax.validation.version>1.1.0.Final</javax.validation.version>
     </properties>
     <repositories>
         <repository>
@@ -146,12 +148,12 @@
             <dependency>
                 <groupId>javax.validation</groupId>
                 <artifactId>validation-api</artifactId>
-                <version>1.0.0.GA</version>
+                <version>${javax.validation.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-validator</artifactId>
-                <version>4.3.1.Final</version>
+                <version>${hibernate-validator.version}</version>
             </dependency>
             
             <!-- rest easy -->

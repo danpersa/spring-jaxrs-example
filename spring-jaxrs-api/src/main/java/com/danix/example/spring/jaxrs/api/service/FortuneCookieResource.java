@@ -17,9 +17,9 @@ import com.danix.example.spring.jaxrs.api.domain.FortuneCookie;
 /**
  * @author  dpersa
  */
-@Path("fortune-cookie")
+@Path("api/fortune-cookie")
 @Produces(MediaType.APPLICATION_JSON)
-public interface FortuneCookieService {
+public interface FortuneCookieResource {
 
     @GET
     @Path("/{id}")

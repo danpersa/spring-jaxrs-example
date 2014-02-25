@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.danix.example.spring.jaxrs.api.domain.FortuneCookie;
-import com.danix.example.spring.jaxrs.api.service.FortuneCookieService;
+import com.danix.example.spring.jaxrs.api.service.FortuneCookieResource;
 
 /**
  * @author  dpersa
@@ -17,13 +17,13 @@ public class IndexService {
      * We inject the rest service into a regular service.
      */
     @Autowired
-    FortuneCookieService fortuneCookieService;
+    FortuneCookieResource fortuneCookieResource;
 
     /**
      * This will make a GET to the backend service.
      */
     public FortuneCookie getRandomFortuneCookie() {
-        return fortuneCookieService.getFortuneCookiebyId(11);
+        return fortuneCookieResource.getFortuneCookiebyId(11);
     }
 
     /**
@@ -33,7 +33,7 @@ public class IndexService {
         FortuneCookie fc = new FortuneCookie();
         fc.setName("name");
         fc.setContent("content");
-        return fortuneCookieService.create(fc);
+        return fortuneCookieResource.create(fc);
     }
 
 }
