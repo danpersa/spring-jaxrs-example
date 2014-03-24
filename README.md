@@ -3,7 +3,7 @@
 The project uses the following technologies:
 - **java**: Java 7
 - **web server**: Tomcat 7
-- **web/REST**: Spring 3, RestEasy 2
+- **web/REST**: Spring 4, RestEasy 3
 - **view**: Freemarker
 - **marshalling**: Jackson (for JSON)
 - **testing**: JUnit
