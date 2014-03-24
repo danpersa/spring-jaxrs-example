@@ -3,11 +3,16 @@ package com.danix.example.spring.jaxrs.backend.exception.handler;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
 import org.springframework.stereotype.Component;
+
+import com.danix.example.spring.jaxrs.api.exception.ValidationException;
+import com.danix.example.spring.jaxrs.api.exception.ValidationMessage;
+import com.danix.example.spring.jaxrs.api.exception.ValidationMessages;
 
 /**
  * @author  dpersa
@@ -18,15 +23,15 @@ public class MethodConstraintViolationExceptionHandler implements ExceptionMappe
 
     @Override
     public Response toResponse(final ConstraintViolationException validationException) {
-        StringBuilder response = new StringBuilder("{ 'error': 'Validation error!!'");
+        ValidationMessages.Builder builder = ValidationMessages.builder();
         for (ConstraintViolation violation : validationException.getConstraintViolations()) {
-            response.append(",");
-            response.append("'" + violation.getInvalidValue() + "':");
-            response.append("'" + violation.getMessage() + "'");
+            builder.withMessage(ValidationMessage.create(violation.getPropertyPath().toString(),
+                    violation.getMessage()));
         }
 
-        response.append("}");
+        ValidationMessages validationMessages = builder.build();
 
-        return Response.serverError().entity(response.toString()).build();
+        return Response.status(Response.Status.BAD_REQUEST).type(MediaType.APPLICATION_JSON_TYPE)
+                       .entity(ValidationException.from(validationMessages)).build();
     }
 }

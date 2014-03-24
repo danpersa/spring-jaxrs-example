@@ -2,11 +2,12 @@ package com.danix.example.spring.jaxrs.backend.service;
 
 import static org.hamcrest.CoreMatchers.is;
 
+import static org.junit.Assert.assertThat;
+
 import org.jboss.resteasy.client.ProxyFactory;
 import org.jboss.resteasy.plugins.providers.RegisterBuiltin;
 import org.jboss.resteasy.spi.ResteasyProviderFactory;
 
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -26,9 +27,9 @@ public class FortuneCookieServiceAcceptanceTest {
     @Test
     public void testGetFortuneCookiebyId() throws Exception {
         FortuneCookieResource client = ProxyFactory.create(FortuneCookieResource.class,
-                "http://localhost:8080/backend/api");
-        FortuneCookie fortuneCookie = client.getFortuneCookiebyId(2);
-        Assert.assertThat(fortuneCookie.getName(), is("You are lucky! " + 2));
+                "http://localhost:8081/backend/");
+        FortuneCookie fortuneCookie = client.getFortuneCookiebyId(14);
+        assertThat(fortuneCookie.getName(), is("You are lucky! " + 14));
     }
 
     @Test

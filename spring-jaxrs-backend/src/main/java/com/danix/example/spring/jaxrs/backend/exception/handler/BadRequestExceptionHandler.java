@@ -1,5 +1,6 @@
 package com.danix.example.spring.jaxrs.backend.exception.handler;
 
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
@@ -17,6 +18,6 @@ public class BadRequestExceptionHandler implements ExceptionMapper<BadRequestExc
     @Override
     public Response toResponse(final BadRequestException e) {
         StringBuilder response = new StringBuilder("{ 'error': 'Bad request!!' }");
-        return Response.serverError().entity(response.toString()).build();
+        return Response.serverError().type(MediaType.APPLICATION_JSON_TYPE).entity(response.toString()).build();
     }
 }

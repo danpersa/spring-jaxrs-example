@@ -18,10 +18,10 @@ The project uses the following technologies:
 ## Call the API from the browser:
 
 - regular call
-http://localhost:xxxx/api/fortune-cookie/14
+http://localhost:xxxx/fortune-cookie/14
 
 - exception handle
-http://localhost:xxxx/api/fortune-cookie/12
+http://localhost:xxxx/fortune-cookie/12
 
 - jsr-349 validation handle
-http://localhost:xxxx/api/fortune-cookie/103
+http://localhost:xxxx/fortune-cookie/103

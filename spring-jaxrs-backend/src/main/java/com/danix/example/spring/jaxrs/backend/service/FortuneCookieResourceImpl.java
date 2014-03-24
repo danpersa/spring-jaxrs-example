@@ -19,13 +19,15 @@ import com.danix.example.spring.jaxrs.api.service.FortuneCookieResource;
 @Validated
 public class FortuneCookieResourceImpl implements FortuneCookieResource {
 
+    private static final int MISSING_FORTUNE_COOKIE = 12;
+
     @Autowired
     private Validator validator;
 
     @Override
     public FortuneCookie getFortuneCookiebyId(final Integer id) {
-        if (id.equals(12)) {
-            throw new FortuneCookieNotFoundException();
+        if (id.equals(MISSING_FORTUNE_COOKIE)) {
+            throw FortuneCookieNotFoundException.from(12);
         }
 
         FortuneCookie fortuneCookie = new FortuneCookie();

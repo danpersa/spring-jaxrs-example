@@ -22,6 +22,10 @@
         <org.apache.httpcomponents.version>4.2.3</org.apache.httpcomponents.version>
         <hibernate-validator.version>5.0.3.Final</hibernate-validator.version>
         <javax.validation.version>1.1.0.Final</javax.validation.version>
+        <jackson.version>1.9.3</jackson.version>
+        <jsr305.version>2.0.1</jsr305.version>
+        <guava.version>16.0.1</guava.version>
+        <junit.version>4.11</junit.version>
     </properties>
     <repositories>
         <repository>
@@ -175,6 +179,20 @@
                 <scope>runtime</scope>
             </dependency>
 
+            <!-- Jackson is a high-performance JSON processor (parser, generator) -->
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-core-asl</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <!-- Data Mapper package is a high-performance data binding package built on Jackson JSON processor -->
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-mapper-asl</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            
+
             <!-- logging -->
             <dependency>
                 <groupId>org.slf4j</groupId>
@@ -235,16 +253,19 @@
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>16.0.1</version>
+                <version>${guava.version}</version>
             </dependency>
-
-
+            <dependency>
+                <groupId>com.google.code.findbugs</groupId>
+                <artifactId>jsr305</artifactId>
+                <version>${jsr305.version}</version>
+            </dependency>
 
             <!-- test dependencies-->
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>4.11</version>
+                <version>${junit.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
